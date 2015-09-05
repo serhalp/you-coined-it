@@ -1,0 +1,24 @@
+{
+  "name": "you-coined-it",
+  "version": "0.0.1",
+  "description": "Reddit bot that congratulates people when they coin a new word on the Internet.",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "reddit",
+    "bot",
+    "vocabulary"
+  ],
+  "author": "Philippe Serhal <philippe.serhal@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "convict": "^1.0.1",
+    "googleapis": "^2.1.3",
+    "lodash": "^3.10.1",
+    "snoocore": "^3.2.0",
+    "wordlist-english": "^1.1.0"
+  }
+}
