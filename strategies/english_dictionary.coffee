@@ -5,8 +5,11 @@ wordlist = require('wordlist-english').english
 Strategy = require './strategy'
 
 module.exports = class EnglishDictionary extends Strategy
-  constructor: ->
+  constructor: ({logger}) ->
     super
+
+    @logger = logger.child strategy: 'english_dictionary'
+
     @entries = _.zipObject wordlist, _.times(wordlist.length, _.constant true)
     @add 'reddit'
     @add 'subreddit'
@@ -19,10 +22,10 @@ module.exports = class EnglishDictionary extends Strategy
     @entries[word] = true
 
   isNeologism: (word) ->
-    console.log "Checking dictionary for #{word}..."
+    @logger.debug {word}, 'Looking word up in dictionary'
     Promise.resolve not @contains word
 
   learn: (word) ->
     @add word
-    console.log "Learned #{word}"
+    @logger.debug {word}, 'Learned word'
     Promise.resolve()
