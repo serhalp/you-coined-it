@@ -7,9 +7,12 @@ Strategy = require '../strategy'
 config = require './config'
 
 module.exports = class GoogleWebSearchAPI extends Strategy
+  constructor: ({logger}) ->
+    @logger = logger.child strategy: 'google_web_search_api'
+
   isNeologism: (word) ->
-    Promise.try ->
-      console.log "Checking Google for #{word}..."
+    Promise.try =>
+      @logger.debug {word}, 'Looking word up via Google API'
 
     .then ->
       query = "\"#{word}\""

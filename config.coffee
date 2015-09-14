@@ -1,6 +1,12 @@
 convict = require 'convict'
 
 config = convict
+  env:
+    doc: 'Node environment currently running'
+    format: ['development', 'test', 'production']
+    default: 'development'
+    env: 'NODE_ENV'
+
   reddit:
     oauth:
       key:
