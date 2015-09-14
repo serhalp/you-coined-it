@@ -1,18 +1,6 @@
 convict = require 'convict'
 
 config = convict
-  google:
-    apiKey:
-      doc: 'Google API key'
-      format: '*'
-      default: null
-      env: 'GOOGLE_API_KEY'
-    cseId:
-      doc: 'Google Custom Search Engine ID'
-      format: '*'
-      default: null
-      env: 'GOOGLE_CSE_ID'
-
   reddit:
     oauth:
       key:
