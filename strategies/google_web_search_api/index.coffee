@@ -16,7 +16,10 @@ module.exports = class GoogleWebSearchAPI extends Strategy
 
     .then ->
       query = "\"#{word}\""
-      cse.listPromised(auth: config.apiKey, cx: config.cseId, q: query)
+      cse.listPromised
+        auth: config.apiKey
+        cx: config.cseId
+        q: query
 
     .spread (result) ->
       result.searchInformation.totalResults is 0
